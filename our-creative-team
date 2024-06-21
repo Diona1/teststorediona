@@ -1,0 +1,87 @@
+{% schema %}
+{
+  "name": "Our Creative Team",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "team_member",
+      "name": "Team Member",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Our Creative Team",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+
+<section class="creative-team-section">
+  <h2>Our Creative Team</h2>
+  <div class="creative-team">
+    {% for block in section.blocks %}
+      <div class="team-member">
+        {% if block.settings.image %}
+          <img src="{{ block.settings.image | img_url: 'medium' }}" alt="Team Member Image" loading="lazy">
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    color: #000000;
+    margin: 0;
+    padding: 0;
+}
+
+.creative-team-section {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #ffffff;
+}
+
+.creative-team-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    font-family: 'Georgia', serif;
+    color: #000000;
+    text-align: left;
+    margin-left: 50px; /* Adjust this value to position the text as per your layout */
+}
+
+.creative-team {
+    display: flex;
+    justify-content: space-between; /* Ensure columns are next to each other */
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 0; /* Remove gap between images */
+}
+
+.team-member {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1 1 calc(33.33% - 0px); /* Ensure columns are next to each other */
+    max-width: calc(33.33% - 0px); /* Ensure columns are next to each other */
+    margin: 0; /* Remove any margin to eliminate gaps */
+    padding: 0; /* Remove padding to ensure no gaps */
+}
+
+.team-member img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-bottom: 0; /* Remove bottom margin to eliminate gaps */
+}
+</style>
