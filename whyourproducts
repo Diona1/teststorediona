@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+        body {
+            font-family: Poppins, sans-serif;
+            background-color: #F6F6F8;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .content {
+            display: flex;
+            align-items: flex-start;
+        }
+        .heading {
+            font-size: 32px;
+            font-weight: bold;
+            text-align: left;
+            margin-right: 20px; /* Space between heading and features */
+            white-space: pre-wrap; /* Ensure text wraps to a new line */
+        }
+        .features {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 10px; /* Set the gap between columns */
+            flex: 1; /* Allow features to take the remaining space */
+        }
+        .feature {
+            flex: 1;
+            text-align: center;
+        }
+        .feature-image img {
+            width: 100px; /* Placeholder size for the image */
+            height: 100px;
+            margin-bottom: 10px;
+            background-color: #F6F6F8; /* Placeholder background color */
+        }
+        .feature-title {
+            font-family: Poppins, sans-serif;
+            font-size: 16px;
+            font-weight: bold; /* Made the titles bolder */
+            margin-bottom: 10px;
+        }
+        .feature-description {
+            font-family: Poppins, sans-serif;
+            font-size: 10px;
+            color: #777;
+            max-width: 80%; /* Set a maximum width to control line breaks */
+            margin: 0 auto; /* Center the description text */
+            white-space: pre-wrap; /* Ensure text wraps to a new line */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h1 class="heading">Why Our<br>Products?</h1>
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-image">
+                        <a href="https://example.com/link1"><img src="https://i.ibb.co/2nBsCNF/Screenshot-4.png" alt="Feature 1"></a>
+                    </div>
+                    <div class="feature-title">10 years of experience</div>
+                    <div class="feature-description">Lorem ipsum dolorom ahnme tios nahito eloreum ipsuem</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-image">
+                        <a href="https://example.com/link2"><img src="https://i.ibb.co/wdvNy9y/Screenshot-5.png" alt="Feature 2"></a>
+                    </div>
+                    <div class="feature-title">Original Art Pieces</div>
+                    <div class="feature-description">Lorem ipsum dolorom ahnme tios nahito eloreum ipsuem</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-image">
+                        <a href="https://example.com/link3"><img src="https://i.ibb.co/ZL03wr0/Screenshot-6.png" alt="Feature 3"></a>
+                    </div>
+                    <div class="feature-title">Organic Materials</div>
+                    <div class="feature-description">Lorem ipsum dolorom ahnme tios nahito eloreum ipsuem</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
