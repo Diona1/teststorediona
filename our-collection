@@ -1,0 +1,148 @@
+{% schema %}
+{
+  "name": "Our Collections",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Description",
+          "default": "Description of the artwork."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Our Collections",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+
+<section class="collections-section">
+  <h2>Our Collections</h2>
+  <div class="collections">
+    {% for block in section.blocks %}
+      <div class="collection-item{% if forloop.index == 1 %} first{% elsif forloop.index == 2 %} second{% elsif forloop.index == 3 %} third{% endif %}">
+        {% if block.settings.image %}
+          <img src="{{ block.settings.image | img_url: 'medium' }}" alt="{{ block.settings.description | escape }}" loading="lazy">
+        {% endif %}
+        <p>{{ block.settings.description }}</p>
+      </div>
+    {% endfor %}
+  </div>
+  <button class="collections-button">See All Collections</button>
+</section>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #14253d;
+    color: #ffff;
+    margin: 0;
+    padding: 0;
+}
+
+.collections-section {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #1e2a38; /* Change this color to your desired background color */
+}
+
+.collections-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    font-family: 'Poppins', serif; /* Change to Poppins font */
+    color: #ffffff; /* Change this to your desired color */
+}
+
+.collections {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.collection-item {
+    max-width: 400px; /* Increase the max-width for larger images */
+    margin: 20px; /* Adding margin for better spacing */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.collection-item.first p {
+    order: 1;
+}
+
+.collection-item.first img {
+    order: 2;
+}
+
+.collection-item.second p,
+.collection-item.third p {
+    order: 2;
+}
+
+.collection-item.second img,
+.collection-item.third img {
+    order: 1;
+}
+
+.collection-item img {
+    width: 100%; /* Make the image take full width of the container */
+    height: auto; /* Maintain the aspect ratio */
+    border-radius: 10px;
+}
+
+.collection-item p {
+    margin-top: 15px;
+    font-size: 1em;
+    text-align: left; /* Aligning text to the left as in the screenshot */
+    color: #ffffff; /* Change text color to white */
+}
+
+.collections-button {
+    background-color: transparent; /* Make the background transparent */
+    color: #ffffff; /* Change text color to white */
+    border: 2px solid #ffffff; /* Add white border */
+    padding: 15px 30px;
+    font-size: 1em;
+    border-radius: 5px;
+    margin-top: 40px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adding a subtle shadow for better visual appeal */
+}
+
+.collections-button:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Add slight background color on hover */
+}
+
+@media (max-width: 768px) {
+    .collections {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .collection-item-content {
+        flex-direction: column; /* Change to column layout on smaller screens */
+    }
+
+    .collection-item img {
+        max-width: 100%; /* Set max-width to 100% for smaller screens */
+    }
+}
+</style>
